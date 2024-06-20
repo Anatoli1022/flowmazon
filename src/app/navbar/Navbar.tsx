@@ -1,12 +1,13 @@
-import Link from "next/link";
-import Image from "next/image";
 import logo from "@/assets/logo.png";
-import { redirect } from "next/navigation";
 import { getCart } from "@/lib/db/cart";
-import ShoppingCartButton from "./ShopingCartButton";
+import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import ShoppingCartButton from "./ShoppingCartButton";
 
 async function searchProducts(formData: FormData) {
   "use server";
+
   const searchQuery = formData.get("searchQuery")?.toString();
 
   if (searchQuery) {
@@ -16,12 +17,13 @@ async function searchProducts(formData: FormData) {
 
 export default async function Navbar() {
   const cart = await getCart();
+
   return (
     <div className="bg-base-100">
-      <div className="max-w-7-xl navbar m-auto flex-col gap-2 sm:flex-row">
+      <div className="navbar m-auto max-w-7xl flex-col gap-2 sm:flex-row">
         <div className="flex-1">
           <Link href="/" className="btn-ghost btn text-xl normal-case">
-            <Image src={logo} alt="flowmazon logo" height={40} width={40} />
+            <Image src={logo} height={40} width={40} alt="Flowmazon logo" />
             Flowmazon
           </Link>
         </div>
@@ -30,7 +32,7 @@ export default async function Navbar() {
             <div className="form-control">
               <input
                 name="searchQuery"
-                placeholder="search"
+                placeholder="Search"
                 className="input-bordered input w-full min-w-[100px]"
               />
             </div>

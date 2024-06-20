@@ -1,4 +1,5 @@
 "use client";
+
 import { ShoppingCart } from "@/lib/db/cart";
 import { formatPrice } from "@/lib/format";
 import Link from "next/link";
@@ -14,11 +15,11 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
       elem.blur();
     }
   }
+
   return (
     <div className="dropdown-end dropdown">
       <label tabIndex={0} className="btn-ghost btn-circle btn">
         <div className="indicator">
-          {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -39,8 +40,8 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
         </div>
       </label>
       <div
-        className="card dropdown-content card-compact z-30 mt-3 w-52 bg-base-100 shadow"
         tabIndex={0}
+        className="card dropdown-content card-compact z-30 mt-3 w-52 bg-base-100 shadow"
       >
         <div className="card-body">
           <span className="text-lg font-bold">{cart?.size || 0} Items</span>
@@ -53,7 +54,7 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
               className="btn-primary btn-block btn"
               onClick={closeDropdown}
             >
-              View card
+              View cart
             </Link>
           </div>
         </div>
